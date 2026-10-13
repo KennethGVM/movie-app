@@ -1,6 +1,6 @@
-import { MovieDBMoviesResponse } from '../../infrastructure/interfaces/moviedb-response';
-import { MovieMapper } from '../../infrastructure/mappers/movie.mapper';
-import { movieApi } from '../api/movie-api';
+import { MovieDBMoviesResponse } from '../../../infrastructure/interfaces/moviedb-response';
+import { MovieMapper } from '../../../infrastructure/mappers/movie.mapper';
+import { movieApi } from '../../api/movie-api';
 
 export const nowPlayingAction = async () => {
   try {
@@ -8,7 +8,7 @@ export const nowPlayingAction = async () => {
     // console.log(JSON.stringify(data, null, 2));
     const movies = data.results.map(MovieMapper.fromTheMovieDBToMovie);
 
-    console.log(movies);
+    // console.log(movies);
 
     return movies;
   } catch (error) {
