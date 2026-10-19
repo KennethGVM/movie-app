@@ -5,10 +5,7 @@ import { movieApi } from '../../api/movie-api';
 export const upcomingMoviesAction = async () => {
   try {
     const { data } = await movieApi.get<MovieDBMoviesResponse>('/upcoming');
-    // console.log(JSON.stringify(data, null, 2));
     const movies = data.results.map(MovieMapper.fromTheMovieDBToMovie);
-
-    // console.log(movies);
 
     return movies;
   } catch (error) {
