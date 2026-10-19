@@ -31,7 +31,8 @@ const HomeScreen = () => {
         {/* Favoritos */}
         <MovieHorizontalList
           title="Favoritos"
-          movies={topRatedQuery.data ?? []}
+          movies={topRatedQuery.data?.pages.flat() ?? []}
+          loadNextPage={topRatedQuery.fetchNextPage}
         />
         {/* Proximamente */}
         <MovieHorizontalList
