@@ -17,10 +17,7 @@ export const topRatedMoviesAction = async ({
         page: page,
       },
     });
-    // console.log(JSON.stringify(data, null, 2));
     const movies = data.results.map(MovieMapper.fromTheMovieDBToMovie);
-
-    // console.log(movies);
 
     return movies;
   } catch (error) {
