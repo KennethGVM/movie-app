@@ -1,48 +1,78 @@
 # Movie App
 
-Estoy desarrollando esta aplicación móvil de películas con React Native como parte de mi proceso de aprendizaje. La idea es poner en práctica y mostrar mis habilidades mientras avanzo en el curso de React Native.
+Aplicación móvil de películas desarrollada con React Native y Expo. Permite explorar películas y consultar información detallada y el reparto, usando datos de [The Movie Database (TMDB)](https://www.themoviedb.org/).
 
-## Objetivos de aprendizaje
+Este proyecto se completó como práctica del curso de React Native y reúne los conceptos y funcionalidades que quería implementar.
 
-- Construir interfaces móviles con React Native y Expo.
-- Organizar pantallas y navegación con Expo Router.
-- Escribir código tipado con TypeScript.
-- Aplicar estilos con NativeWind.
-- Consumir la API de The Movie Database (TMDB) y adaptar sus respuestas al modelo de la aplicación.
+## Funcionalidades
+
+- Pantalla de inicio con un carrusel de películas en cartelera.
+- Listas de películas populares, mejor valoradas y próximas a estrenarse.
+- Carga paginada de películas mejor valoradas al desplazarse por la lista.
+- Vista de detalle con sinopsis, puntuación, géneros, presupuesto y reparto.
+- Contenido y consultas a TMDB en español (México).
 
 ## Tecnologías
 
-- React Native
-- Expo
+- React Native y Expo SDK 57
 - Expo Router
 - TypeScript
 - NativeWind
+- TanStack Query
 - Axios
+- React Native Reanimated Carousel
 - The Movie Database (TMDB)
 
-## Empezar
+## Requisitos
 
-Instala las dependencias:
+- Node.js
+- pnpm
+- Una API key de TMDB
+
+## Instalación y ejecución
+
+1. Clona el repositorio y entra en la carpeta del proyecto.
+2. Instala las dependencias:
+
+   ```bash
+   pnpm install
+   ```
+
+3. Copia `.env.template` como `.env` y agrega tu API key de TMDB:
+
+   ```env
+   EXPO_PUBLIC_MOVIE_DB_URL=https://api.themoviedb.org/3/movie
+   EXPO_PUBLIC_MOVIE_DB_KEY=tu_api_key
+   ```
+
+   Puedes solicitar una API key desde [la configuración de tu cuenta de TMDB](https://www.themoviedb.org/settings/api). No subas tu archivo `.env` al repositorio.
+
+4. Inicia Expo:
+
+   ```bash
+   pnpm start
+   ```
+
+También puedes iniciar directamente el proyecto en una plataforma:
 
 ```bash
-pnpm install
+pnpm android
+pnpm ios
+pnpm web
 ```
 
-Crea un archivo `.env` a partir de `.env.template` y configura las variables de TMDB:
-
-```env
-EXPO_PUBLIC_MOVIE_DB_URL=https://api.themoviedb.org/3/movie
-EXPO_PUBLIC_MOVIE_DB_KEY=tu_api_key
-```
-
-Puedes obtener una API key en [la configuración de tu cuenta de TMDB](https://www.themoviedb.org/settings/api). No compartas ni subas tu archivo `.env` al repositorio.
-
-Inicia Expo:
+## Validaciones
 
 ```bash
-pnpm start
+pnpm lint
+pnpm exec tsc --noEmit
 ```
 
-## Estado
+## Estructura del proyecto
 
-El proyecto está en desarrollo. Estoy construyéndolo paso a paso como práctica del curso y para seguir fortaleciendo mis conocimientos de React Native.
+- `src/app/`: rutas y pantallas de Expo Router.
+- `presentation/`: componentes de interfaz y hooks de consultas.
+- `core/actions/`: acciones para obtener películas y reparto.
+- `core/api/`: cliente HTTP de TMDB.
+- `infrastructure/`: interfaces de datos y mapeadores de respuestas.
+- `config/`: utilidades de configuración y formato.
